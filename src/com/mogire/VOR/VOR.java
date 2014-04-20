@@ -10,7 +10,9 @@ public class VOR {
     public int course;
 	public int interceptedRadial;
 	public int deflection;
-	
+	public String direction;
+	public String signal;
+	public String interceptedStatus;
 	
 	public int Course(int setting) {
 		if (setting>=180) {
@@ -25,11 +27,34 @@ public class VOR {
 	public int Deflection(int course, int interceptedRadial) {
 		 
 		deflection=interceptedRadial-course;
-		   
 		
 		return deflection;
 		
 	}
+
+	public String Direction(int interceptedRadial, int Course) { 
+    	if(interceptedRadial<((Course+90)%360) && interceptedRadial>((Course-90)%360)) {
+			direction="TO";
+			}
+     
+		    else if (interceptedRadial>((Course+90)%360) || interceptedRadial<((Course-90)%360)) {
+				direction="FROM";
+				}
+             else {
+				direction="OFF";
+			      }
+          return direction;
+      }
+	
+	public String Signal(String direction, String interceptStatus) { 
+    	if(direction=="TO" || direction=="FROM") {
+     	  signal="GOOD";
+     	    }     
+         else if(interceptStatus.equals("BAD")){     	
+     	     	signal="BAD";
+                }
+           return signal;
+       }
 	
 	
 	

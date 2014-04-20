@@ -30,5 +30,23 @@ public class VORtest {
 		assertEquals(40,tester.Deflection(120, 160));
 	}
 	
+	@Test
+	public void testDirection() {
+		VOR tester= new VOR();
+		assertEquals("TO",tester.Direction(90, 120));
+		assertEquals("FROM",tester.Direction(90, 300));		
+	}
+	
+	@Test
+	public void testSignal() {
+		VOR tester= new VOR();
+		assertEquals("GOOD",tester.Signal("TO", "GOOD"));
+		assertEquals("GOOD",tester.Signal("FROM", "GOOD"));
+		assertEquals("BAD",tester.Signal("OFF", "BAD"));
+		
+	}
+	
+	
+	
 	
 }
