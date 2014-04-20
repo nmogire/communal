@@ -6,6 +6,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.mogire.VOR.VOR;
+
 public class VORtest {
 
 	@BeforeClass
@@ -17,8 +19,16 @@ public class VORtest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testCourse() {
+	 VOR tester = new VOR();
+	 assertEquals("direction relative to VOR", 270, tester.Course(90));
+	 }
+	
+	@Test
+	public void testDeflection() {
+		VOR tester= new VOR();
+		assertEquals(40,tester.Deflection(120, 160));
 	}
-
+	
+	
 }
