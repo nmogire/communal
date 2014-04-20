@@ -14,6 +14,9 @@ public class VOR {
 	public String signal;
 	public String interceptedStatus;
 	
+	
+	
+	//determine the course to travel based on OBS setting
 	public int Course(int setting) {
 		if (setting>=180) {
         	course= setting-180;
@@ -24,6 +27,7 @@ public class VOR {
 		return course;
 	}
 	
+	//calculate deflection from course
 	public int Deflection(int course, int interceptedRadial) {
 		 
 		deflection=interceptedRadial-course;
@@ -32,6 +36,7 @@ public class VOR {
 		
 	}
 
+	//determine direction of plane relative to VOR
 	public String Direction(int interceptedRadial, int Course) { 
     	if(interceptedRadial<((Course+90)%360) && interceptedRadial>((Course-90)%360)) {
 			direction="TO";
@@ -46,6 +51,7 @@ public class VOR {
           return direction;
       }
 	
+	//determine signal reception status
 	public String Signal(String direction, String interceptStatus) { 
     	if(direction=="TO" || direction=="FROM") {
      	  signal="GOOD";
