@@ -25,8 +25,10 @@ public class VOR {
 	public int Deflection(int course, int interceptedRadial) {
 		 
 		deflection=interceptedRadial-course;
-		                 
+		   
+		
 		return deflection;
+		
 	}
 	
 	
